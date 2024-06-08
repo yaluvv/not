@@ -2,7 +2,6 @@ import styles from './styles.module.scss';
 
 
 import {  updateUserClick, updateUserCoins } from '../../Database/db';
-import { useState } from 'react';
 
 
 //@ts-ignore

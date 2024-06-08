@@ -11,15 +11,12 @@ WebApp.ready();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <body>
+
       
     <App />
 
-    <script>
-    window.Telegram.WebApp.isExpanded = true;
-    window.Telegram.WebApp.expand();
-    </script>
-    </body>
    
-  </React.StrictMode>,
+   
+  </React.StrictMode>
+  
 )

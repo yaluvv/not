@@ -5,23 +5,23 @@ interface CryptocashDB extends DBSchema {
     key: string;
     value: {
       userid: string;
-      country: string;
       coins: number;
+      isClick: boolean;
     };
-    indexes: { 'by-country': string };
   };
 }
 
 const dbPromise = openDB<CryptocashDB>('cryptocash-db', 1, {
   upgrade(db) {
-    const userStore = db.createObjectStore('users', {
+ db.createObjectStore('users', {
       keyPath: 'userid',
     });
-    userStore.createIndex('by-country', 'country');
+    
   },
 });
 
-export const addUser = async (user: { userid: string; country: string; coins: number }) => {
+
+export const addUser = async (user: { userid: string; coins: number, isClick: boolean }) => {
   const db = await dbPromise;
   await db.put('users', user);
 };
@@ -31,6 +31,16 @@ export const updateUserCoins = async (userid: string, coins: number) => {
   const user = await db.get('users', userid);
   if (user) {
     user.coins = coins;
+    await db.put('users', user);
+  }
+};
+
+
+export const updateUserClick = async (userid: string, isClick: boolean) => {
+  const db = await dbPromise;
+  const user = await db.get('users', userid);
+  if (user) {
+    user.isClick = isClick;
     await db.put('users', user);
   }
 };

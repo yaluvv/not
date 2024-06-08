@@ -2,7 +2,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: #010A43;
+  background-color: #080808;
 }
 
 #root {
@@ -77,18 +77,20 @@ p {
 
 .menu {
   width: 100%;
-  max-width: 420px;
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 16px;
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: #192259;
+  background: #0c0c0c;
   z-index: 100;
+  -webkit-box-shadow: 10px 10px 62px 14px rgba(199,159,0,1);
+  -moz-box-shadow: 10px 10px 62px 14px rgba(199,159,0,1);
+  box-shadow: 10px 10px 62px 14px rgba(199,159,0,1);
 }
 
 .menu .btn {

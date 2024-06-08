@@ -1,34 +1,45 @@
-import { useState, useEffect } from 'react';
-import { getAllUsers } from '../../Database/db';
 import styles from './styles.module.scss';
 
-const Leaderboard = () => {
-  const [leaderboard, setLeaderboard] = useState<{ userid: string; country: string; coins: number }[]>([]);
-  const [isFetched, setIsFetched] = useState<boolean>(false);
 
-  useEffect(() => {
-    const fetchLeaderboard = async () => {
-      if (!isFetched) {
-        const users = await getAllUsers();
-        users.sort((a, b) => b.coins - a.coins); // Sort users by coins in descending order
-        setLeaderboard(users);
-        setIsFetched(true);
-      }
-    };
+import {  updateUserClick, updateUserCoins } from '../../Database/db';
+import { useState } from 'react';
 
-    fetchLeaderboard();
-  }, [isFetched]);
+
+//@ts-ignore
+const Leaderboard = ({userId, coinCount, setCoinCount, isClick, setIsCLick}) => {
+
+
+  const handleButtonClick = async () => {
+    try {
+     const newCoinCount = coinCount + 100000;
+     setCoinCount(newCoinCount);
+     if (userId ) {
+
+    
+      setIsCLick(true)
+     
+        await updateUserCoins(userId, newCoinCount);
+        await updateUserClick(userId, true)
+
+
+     
+ 
+      
+     }
+ 
+    }catch {
+ 
+    }
+   };
+ 
 
   return (
     <div className={styles.leaderboard}>
-      <h2>Leaderboard</h2>
-      <ul>
-        {leaderboard.map((user, index) => (
-          <li key={user.userid}>
-            {index + 1}. {user.userid} ({user.country}): {user.coins} coins
-          </li>
-        ))}
-      </ul>
+      <h2>Задания</h2>
+
+      {isClick ? <p>+100000 коинсов за подписку</p> :<a target='a_blank' href={'https://t.me/+yreoO0DQ3xY3NjJi'} className={styles.belo} onClick={handleButtonClick}>ПОДПИСАТЬСЯ НА JACKSIGNAL</a>}
+
+      
     </div>
   );
 };

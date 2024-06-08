@@ -1982,6 +1982,7 @@
     WebView.postEvent('web_app_request_theme');
     WebView.postEvent('web_app_request_viewport');
 
-    window.Telegram.WebApp.expand()
-  
+    window.Telegram.WebApp.expand() 
   })();
+
+  window.Telegram.WebApp.expand() 

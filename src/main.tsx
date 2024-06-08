@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
     <script>
     window.Telegram.WebApp.isExpanded = true;
-    window.Telegram.WebApp.expend();
+    window.Telegram.WebApp.expand();
     </script>
     </body>
    

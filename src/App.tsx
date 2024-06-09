@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react';
 import styles from './App.module.scss';
 import { addUser, updateUserCoins, getUser } from './Database/db';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
-import {TrophyOutlined, DollarOutlined  } from '@ant-design/icons';
+import {TrophyOutlined, DollarOutlined, BarsOutlined   } from '@ant-design/icons';
 import { Button } from 'antd';
-import buttonSvg from './assets/button.png';
-import moneySvg from './assets/money.png';
+import buttonSvg from './assets/luna.png';
+import moneySvg from './assets/meteor.png';
+import airIcon from './assets/airicon.png';
 
 function App() {
   const [coinCount, setCoinCount] = useState<number>(0);
   const [userId, setUserId] = useState<string>('');
   const [currentView, setCurrentView] = useState<string>('coin');
   const [isClick, setIsCLick] = useState<boolean>(false);
+  const [isClick2, setIsCLick2] = useState<boolean>(false);
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -22,14 +24,13 @@ function App() {
         if (user) {
           setCoinCount(user.coins);
           setIsCLick(user.isClick)
-          console.log('1'+ localStorage.getItem('userId'));
 
         }
       } else {
         const newUserId = 'You';
         localStorage.setItem('userId',newUserId);
         setUserId(newUserId);
-        await addUser({ userid: newUserId, coins: 0, isClick: false });
+        await addUser({ userid: newUserId, coins: 0, isClick: false, isClick2: false });
       }
     };
 
@@ -39,6 +40,10 @@ function App() {
       
   
   }, []);
+
+
+
+
 
   const handleButtonClick = async () => {
    try {
@@ -66,13 +71,16 @@ function App() {
             <img src={moneySvg} alt="money" className={styles.scoreImg} />
             <h1>{coinCount}</h1>
           </div>
-          <img src={buttonSvg} alt="Click to earn coins" className={styles.clickButton} onClick={handleButtonClick} />
+          <div className={styles.clickButton} onClick={handleButtonClick} >
+          <img src={buttonSvg} alt="Click to earn coins" />
+          </div>
+         
         </div>
       );
     }
 
     if (currentView === 'leaderboard') {
-      return <Leaderboard userId={userId} coinCount={coinCount} setCoinCount={setCoinCount} isClick={isClick} setIsCLick={setIsCLick}/>;
+      return <Leaderboard userId={userId} coinCount={coinCount} setCoinCount={setCoinCount} isClick={isClick} setIsCLick={setIsCLick} isClick2={isClick2} setIsCLick2={setIsCLick2}/>;
     }
 
     return null;
@@ -80,11 +88,15 @@ function App() {
 
   return (
     <div className={styles.app}>
+
       {renderContent()}
  
         <div className={styles.menu}>
           <Button ghost className={styles.btn} onClick={() => setCurrentView('coin')} shape="circle" icon={<DollarOutlined className={styles.icon} />} />
-          <Button ghost className={styles.btn} onClick={() => setCurrentView('leaderboard')} shape="circle" icon={<TrophyOutlined className={styles.icon} />} />
+          <Button ghost className={styles.btn} onClick={() => setCurrentView('leaderboard')} shape="circle" icon={<BarsOutlined  className={styles.icon} />} />
+ 
+          <img src={airIcon} alt="airicon" />
+
         </div>
   
     </div>

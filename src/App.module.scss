@@ -1,8 +1,18 @@
 /* App.module.scss */
+
+
+
 body {
   display: flex;
   flex-direction: column;
-  background-color: #080808;
+background-color: black;
+background-image:   url("./assets/IrS.gif");
+background-repeat: no-repeat;
+background-size: contain;
+}
+
+:root{
+  font-family: "COINY", sans-serif; 
 }
 
 #root {
@@ -53,7 +63,7 @@ body {
 
 .app {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: "COINY", sans-serif; 
 }
 
 .countrySelection {
@@ -76,21 +86,24 @@ p {
 }
 
 .menu {
-  width: 100%;
-  padding: 16px;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 52%;
+  transform: translateX(-55%);
   background: #0c0c0c;
   z-index: 100;
-  -webkit-box-shadow: 10px 10px 62px 14px rgba(199,159,0,1);
-  -moz-box-shadow: 10px 10px 62px 14px rgba(199,159,0,1);
-  box-shadow: 10px 10px 62px 14px rgba(199,159,0,1);
+  -webkit-box-shadow: 10px 10px 62px 14px rgb(255 255 255);
+  -moz-box-shadow: 10px 10px 62px 14px rgb(255 255 255);
+  box-shadow: 10px 10px 62px 14px rgb(255 255 255);
+  border-radius: 15px;
+margin-left: 10px;
+margin-right: 10px;
+  margin-bottom: 30px;
 }
 
 .menu .btn {
@@ -99,6 +112,12 @@ p {
   font-size: 32px;
   border-color: none !important;
   border: 0 !important;
+}
+
+.menu img {
+  width: 60px;
+  height: 40px;
+  opacity: 50%;
 }
 
 .icon {
@@ -115,18 +134,39 @@ p {
   visibility: hidden;
 }
 
-.clickButton {
-  cursor: pointer;
-  width: 60%;
-  max-width: 300px;
-  height: auto;
-  margin-top: 20px;
-  transition: transform 0.1s ease-in-out;
-}
 
 .clickButton:active {
-  animation: click-animation 0.2s ease-in-out;
+  position: relative;
 }
+
+.clickButton:active::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url(/src/assets/meteor.png);
+  /* background-color: red; */
+  left: 80%;
+  top: 50%;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  animation: meteor-animation 0.2s ease-in-out;
+}
+
+.clickButton img {
+  cursor: pointer;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  margin-top: 120px;
+  transition: transform 0.1s ease-in-out;
+}
+.clickButton img:active {
+  animation: click-animation 0.1s ease;
+}
+
 
 @keyframes click-animation {
   0% {
@@ -134,11 +174,22 @@ p {
   }
 
   50% {
-    transform: scale(0.97);
+    transform: scale(0.95);
   }
 
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes meteor-animation {
+  0% {
+    left: 60%;
+  }
+
+
+  100% {
+    left: 50%;
   }
 }
 
@@ -153,3 +204,4 @@ p {
   width: 20%;
   height: 20%;
 }
+

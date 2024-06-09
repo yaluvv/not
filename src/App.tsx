@@ -12,8 +12,8 @@ function App() {
   const [coinCount, setCoinCount] = useState<number>(0);
   const [userId, setUserId] = useState<string>('');
   const [currentView, setCurrentView] = useState<string>('coin');
-  const [isClick, setIsCLick] = useState<boolean>(false);
-  const [isClick2, setIsCLick2] = useState<boolean>(false);
+  const [isClick, setIsClick] = useState<boolean>(false);
+  const [isClick2, setIsClick2] = useState<boolean>(false);
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -23,7 +23,7 @@ function App() {
         const user = await getUser(storedUserId);
         if (user) {
           setCoinCount(user.coins);
-          setIsCLick(user.isClick)
+          setIsClick(user.isClick)
 
         }
       } else {
@@ -80,7 +80,7 @@ function App() {
     }
 
     if (currentView === 'leaderboard') {
-      return <Leaderboard userId={userId} coinCount={coinCount} setCoinCount={setCoinCount} isClick={isClick} setIsCLick={setIsCLick} isClick2={isClick2} setIsCLick2={setIsCLick2}/>;
+      return <Leaderboard userId={userId} coinCount={coinCount} setCoinCount={setCoinCount} isClick={isClick} setIsClick={setIsClick} isClick2={isClick2} setIsClick2={setIsClick2}/>;
     }
 
     return null;

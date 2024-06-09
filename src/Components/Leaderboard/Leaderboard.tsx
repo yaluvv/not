@@ -7,7 +7,7 @@ import {  updateUserClick, updateUserClick2, updateUserCoins } from '../../Datab
 
 
 //@ts-ignore
-const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsCLick, setIsCLick2}) => {
+const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsClick, setIsClick2}) => {
 
 
   const handleButtonClick = async () => {
@@ -17,7 +17,7 @@ const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsC
      if (userId ) {
 
     
-      setIsCLick(true)
+      setIsClick(true)
      
         await updateUserCoins(userId, newCoinCount);
         await updateUserClick(userId, true)
@@ -38,7 +38,7 @@ const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsC
      if (userId ) {
 
     
-      setIsCLick2(true)
+      setIsClick2(true)
      
         await updateUserCoins(userId, newCoinCount);
         await updateUserClick2(userId, true)

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './App.module.scss';
-import { addUser, updateUserCoins, getUser, getUserTgId } from './Database/db';
+import { addUser, updateUserCoins, getUser } from './Database/db';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
 import { DollarOutlined, BarsOutlined   } from '@ant-design/icons';
 import { Button, ConfigProvider } from 'antd';
@@ -30,8 +30,7 @@ function App() {
         setUserId(storedUserId);
         setUserTgId(storedUserTgId)
         const user = await getUser(storedUserId);
-        const tgIdi = await getUserTgId(storedUserTgId);
-        if (user && tgIdi) {
+        if (user) {
           setCoinCount(user.coins);
           setIsClick(user.isClick)
           setIsClick2(user.isClick2)

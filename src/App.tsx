@@ -73,10 +73,10 @@ function App() {
     if (currentView === 'coin') {
       return (
         <div>
-          <div >
+          <div  >
             <div className={styles.score}>
             <img src={moneySvg} alt="money" className={styles.scoreImg} />
-            <h1>{coinCount}</h1>
+            <h1 className={styles.scoreTitle}>{coinCount}</h1>
             </div>
             <p className={styles.x5}><img src={moneySvg} alt='x5'></img>X5 БОНУС</p>
           </div>

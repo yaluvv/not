@@ -109,7 +109,7 @@ function App() {
      
          <div className={`${styles.menuBtn} ${styles.menuBtnAir}` }>
 <img src={airIcon} alt="airicon" />
-<p>AIRPDROP</p>
+<p>AIRDROP</p>
 </div>
         
 

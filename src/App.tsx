@@ -88,7 +88,6 @@ function App() {
             <h1 className={styles.scoreTitle}>{coinCount}</h1>
             </div>
             <p className={styles.x5}><img src={moneySvg} alt='x5'></img>X5 БОНУС</p>
-            <p>{userId}{userTgId}</p>
           </div>
           <div className={styles.clickButton} onClick={handleButtonClick} >
           <img src={buttonSvg} alt="Click to earn coins" />

@@ -1,4 +1,6 @@
 import styles from './styles.module.scss';
+import jack from '../../assets/1.png';
+import web3 from '../../assets/2.jpg';
 
 
 import {  updateUserClick, updateUserClick2, updateUserCoins } from '../../Database/db';
@@ -56,9 +58,9 @@ const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsC
       <h2 className={styles.title}>Задания</h2>
 
       <div className={styles.block}>
-      {isClick ? <p className={styles.plus}><b>+100000 коинсов</b> за подписку</p> :<a target='a_blank' href={'https://t.me/+yreoO0DQ3xY3NjJi'} className={styles.belo} onClick={handleButtonClick}><img src='./public/1.png'></img><p>ПОДПИСАТЬСЯ НА JACKSIGNAL</p></a>}
-      {isClick2 ? <p className={styles.plus}><b>+100000 коинсов</b> за подписку</p> :<a target='a_blank' href={'https://t.me/+yreoO0DQ3xY3NjJi'} className={styles.belo} onClick={handleButtonClick2}><img src='./public/2.jpg'></img><p>ПОДПИСАТЬСЯ НА WEB3</p></a>}
-     {isClick && isClick2  ?<p>Вы выполнили все задания</p> : <h3>За каждое выполненое задание <p>+100.000 COINS</p></h3>  }
+      {isClick ? <p className={styles.plus}><b>+100000 $LUNAM</b> за подписку</p> :<a target='a_blank' href={'https://t.me/+yreoO0DQ3xY3NjJi'} className={styles.belo} onClick={handleButtonClick}><img src={jack}></img><p>ПОДПИСАТЬСЯ НА JACKSIGNAL</p></a>}
+      {isClick2 ? <p className={styles.plus}><b>+100000 $LUNAM</b> за подписку</p> :<a target='a_blank' href={'https://t.me/+yreoO0DQ3xY3NjJi'} className={styles.belo} onClick={handleButtonClick2}><img src={web3}></img><p>ПОДПИСАТЬСЯ НА WEB3</p></a>}
+     {isClick && isClick2  ?<p>Вы выполнили все задания</p> : <h3>За каждое выполненое задание <p>+100.000 $LUNAM</p></h3>  }
       </div>
 
     

@@ -15,6 +15,11 @@ function App() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const [isClick2, setIsClick2] = useState<boolean>(false);
 
+  const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent)
+
+  console.log(isMobile);
+  
+
   useEffect(() => {
     const initializeApp = async () => {
       const storedUserId = localStorage.getItem('userId');
@@ -93,9 +98,9 @@ function App() {
   return (
     <div className={styles.app}>
 
-      {renderContent()}
- 
-        <div className={styles.menu}>
+      {!isMobile ? <h1 className={styles.not1}>Играть можно только с телефона!</h1> : renderContent()}
+
+      {!isMobile ? <h1 className={styles.not1}>Перейдите в бот <a href='t.me/lunamton_bot/lunamton'>t.me/lunamton_bot/lunamton</a>c телефона</h1>:  <div className={styles.menu}>
           <ConfigProvider wave={{ disabled: true }}>
           <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('coin')} icon={<DollarOutlined className={styles.icon} />}> 
                <p>ИГРАТЬ</p>
@@ -113,7 +118,9 @@ function App() {
 </div>
         
 
-        </div>
+        </div>}
+ 
+       
   
     </div>
   );

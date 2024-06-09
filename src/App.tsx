@@ -24,6 +24,7 @@ function App() {
         if (user) {
           setCoinCount(user.coins);
           setIsClick(user.isClick)
+          setIsClick2(user.isClick2)
 
         }
       } else {

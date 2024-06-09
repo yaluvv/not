@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './App.module.scss';
 import { addUser, updateUserCoins, getUser } from './Database/db';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
-import {TrophyOutlined, DollarOutlined, BarsOutlined   } from '@ant-design/icons';
+import { DollarOutlined, BarsOutlined   } from '@ant-design/icons';
 import { Button } from 'antd';
 import buttonSvg from './assets/luna.png';
 import moneySvg from './assets/meteor.png';
@@ -94,7 +94,7 @@ function App() {
         <div className={styles.menu}>
           <Button ghost className={styles.btn} onClick={() => setCurrentView('coin')} shape="circle" icon={<DollarOutlined className={styles.icon} />} />
           <Button ghost className={styles.btn} onClick={() => setCurrentView('leaderboard')} shape="circle" icon={<BarsOutlined  className={styles.icon} />} />
- 
+
           <img src={airIcon} alt="airicon" />
 
         </div>

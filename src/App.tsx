@@ -3,7 +3,7 @@ import styles from './App.module.scss';
 import { addUser, updateUserCoins, getUser } from './Database/db';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
 import { DollarOutlined, BarsOutlined   } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 import buttonSvg from './assets/luna.png';
 import moneySvg from './assets/meteor.png';
 import airIcon from './assets/airicon.png';
@@ -96,18 +96,17 @@ function App() {
       {renderContent()}
  
         <div className={styles.menu}>
+          <ConfigProvider wave={{ disabled: true }}>
           <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('coin')} icon={<DollarOutlined className={styles.icon} />}> 
                <p>ИГРАТЬ</p>
-   
-     
-      
-               </Button>      
+               </Button>  
+               </ConfigProvider>    
+               <ConfigProvider wave={{ disabled: true }}>
          <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('leaderboard')} icon={<BarsOutlined  className={styles.icon} />}>
          <p>ЗАДАНИЯ</p>
          </Button>
+         </ConfigProvider>   
      
-    
-         
          <div className={`${styles.menuBtn} ${styles.menuBtnAir}` }>
 <img src={airIcon} alt="airicon" />
 <p>AIRPDROP</p>

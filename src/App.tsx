@@ -12,7 +12,7 @@ import WebApp from '@twa-dev/sdk'
 function App() {
   const [coinCount, setCoinCount] = useState<number>(0);
   const [userId, setUserId] = useState<string>('');
-  const [userTgId, setUserTgId] = useState<string>('');
+  const [_, setUserTgId] = useState<string>('');
   const [currentView, setCurrentView] = useState<string>('coin');
   const [isClick, setIsClick] = useState<boolean>(false);
   const [isClick2, setIsClick2] = useState<boolean>(false);

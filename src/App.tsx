@@ -7,6 +7,7 @@ import { Button, ConfigProvider } from 'antd';
 import buttonSvg from './assets/luna1.png';
 import moneySvg from './assets/meteor.png';
 import airIcon from './assets/airicon.png';
+import WebApp from '@twa-dev/sdk'
 
 function App() {
   const [coinCount, setCoinCount] = useState<number>(0);
@@ -30,6 +31,8 @@ function App() {
           setCoinCount(user.coins);
           setIsClick(user.isClick)
           setIsClick2(user.isClick2)
+  
+          
 
         }
       } else {
@@ -79,6 +82,7 @@ function App() {
             <h1 className={styles.scoreTitle}>{coinCount}</h1>
             </div>
             <p className={styles.x5}><img src={moneySvg} alt='x5'></img>X5 БОНУС</p>
+            <p>{WebApp.initDataUnsafe.user?.id}</p>
           </div>
           <div className={styles.clickButton} onClick={handleButtonClick} >
           <img src={buttonSvg} alt="Click to earn coins" />

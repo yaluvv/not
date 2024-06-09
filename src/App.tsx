@@ -96,10 +96,23 @@ function App() {
       {renderContent()}
  
         <div className={styles.menu}>
-          <Button ghost className={styles.btn} onClick={() => setCurrentView('coin')} shape="circle" icon={<DollarOutlined className={styles.icon} />} />
-          <Button ghost className={styles.btn} onClick={() => setCurrentView('leaderboard')} shape="circle" icon={<BarsOutlined  className={styles.icon} />} />
-
-          <img src={airIcon} alt="airicon" />
+          <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('coin')} icon={<DollarOutlined className={styles.icon} />}> 
+               <p>ИГРАТЬ</p>
+   
+     
+      
+               </Button>      
+         <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('leaderboard')} shape="circle" icon={<BarsOutlined  className={styles.icon} />}>
+         <p>ЗАДАНИЯ</p>
+         </Button>
+     
+    
+         
+         <div className={`${styles.menuBtn} ${styles.menuBtnAir}` }>
+<img src={airIcon} alt="airicon" />
+<p>AIRPDROP</p>
+</div>
+        
 
         </div>
   

@@ -30,11 +30,12 @@ function App() {
         setUserId(storedUserId);
         setUserTgId(storedUserTgId)
         const user = await getUser(storedUserId);
-        //const tgIdi = await getUserTgId(storedUserTgId);
-        if (user) {
+        const tgIdi = await getUserTgId(storedUserTgId);
+        if (user && tgIdi) {
           setCoinCount(user.coins);
           setIsClick(user.isClick)
           setIsClick2(user.isClick2)
+          setUserTgId(user.tgId)
           
 
         }

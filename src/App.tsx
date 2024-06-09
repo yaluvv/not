@@ -48,7 +48,7 @@ function App() {
 
   const handleButtonClick = async () => {
    try {
-    const newCoinCount = coinCount + 2;
+    const newCoinCount = coinCount + 5;
     setCoinCount(newCoinCount);
     if (userId ) {
       await updateUserCoins(userId, newCoinCount);
@@ -68,9 +68,12 @@ function App() {
     if (currentView === 'coin') {
       return (
         <div>
-          <div className={styles.score}>
+          <div >
+            <div className={styles.score}>
             <img src={moneySvg} alt="money" className={styles.scoreImg} />
             <h1>{coinCount}</h1>
+            </div>
+            <p className={styles.x5}><img src={moneySvg} alt='x5'></img>X5 БОНУС</p>
           </div>
           <div className={styles.clickButton} onClick={handleButtonClick} >
           <img src={buttonSvg} alt="Click to earn coins" />

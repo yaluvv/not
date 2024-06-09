@@ -205,3 +205,18 @@ margin-right: 10px;
   height: 20%;
 }
 
+.x5 {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.822);
+  border-radius: 20px;
+  color:  #34C924;
+  column-gap: 5px;
+}
+
+.x5 img {
+  width: 30px;
+  height: 20px;
+}

@@ -1,8 +1,9 @@
 .leaderboard {
-  margin-top: 20px;
+  margin-top: 80px;
   text-align: left;
   margin-bottom: 112px;
   max-width: 420px;
+  padding: 10px;
 }
 
 .leaderboard h2 {
@@ -27,7 +28,8 @@
   align-items: center;
  border: 2px  solid  aliceblue;
   padding: 7px;
-  color: white;
+  color: black;
+  background-color: white;
   font-weight: 700;
   border-radius: 15px;
 }

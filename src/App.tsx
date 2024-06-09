@@ -27,19 +27,17 @@ function App() {
       if (storedUserId) {
         setUserId(storedUserId);
         const user = await getUser(storedUserId);
-        if (user) {
+        const userId = `${WebApp.initDataUnsafe.user?.id}`
+        if (user && userId) {
           setCoinCount(user.coins);
           setIsClick(user.isClick)
           setIsClick2(user.isClick2)
-  
-          
 
         }
       } else {
-        const newUserId = 'You';
-        localStorage.setItem('userId',newUserId);
-        setUserId(newUserId);
-        await addUser({ userid: newUserId, coins: 0, isClick: false, isClick2: false });
+        localStorage.setItem('userId', userId);
+        setUserId(userId);
+        await addUser({ userid: userId, coins: 0, isClick: false, isClick2: false });
       }
     };
 
@@ -82,7 +80,7 @@ function App() {
             <h1 className={styles.scoreTitle}>{coinCount}</h1>
             </div>
             <p className={styles.x5}><img src={moneySvg} alt='x5'></img>X5 БОНУС</p>
-            <p>{WebApp.initDataUnsafe.user?.id}</p>
+            <p>{userId}</p>
           </div>
           <div className={styles.clickButton} onClick={handleButtonClick} >
           <img src={buttonSvg} alt="Click to earn coins" />

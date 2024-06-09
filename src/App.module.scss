@@ -143,9 +143,22 @@ margin-right: 10px;
   visibility: hidden;
 }
 
+.clickButton {
+  height: 200px;
+    max-width: 255px;
+}
 
 .clickButton:active {
   position: relative;
+}
+
+.clickButton:focus-visible {
+  outline: none;
+}
+
+.clickButton img:focus-visible {
+  outline: none;
+
 }
 
 .clickButton:active::after {
@@ -166,11 +179,13 @@ margin-right: 10px;
 
 .clickButton img {
   cursor: pointer;
-  width: 80%;
+  width: 100%;
   max-width: 500px;
   height: auto;
   margin-top: 50px;
   transition: transform 0.1s ease-in-out;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
 }
 .clickButton img:active {
   animation: click-animation 0.1s ease;
@@ -255,4 +270,10 @@ font-size: 14px;
 
 .not1 {
   font-size: 16px;
+}
+
+.fuckingMain {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -4,7 +4,7 @@ import { addUser, updateUserCoins, getUser } from './Database/db';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
 import { DollarOutlined, BarsOutlined   } from '@ant-design/icons';
 import { Button, ConfigProvider } from 'antd';
-import buttonSvg from './assets/luna.png';
+import buttonSvg from './assets/luna1.png';
 import moneySvg from './assets/meteor.png';
 import airIcon from './assets/airicon.png';
 
@@ -72,8 +72,8 @@ function App() {
 
     if (currentView === 'coin') {
       return (
-        <div>
-          <div  >
+        <div className={styles.fuckingMain}>
+          <div >
             <div className={styles.score}>
             <img src={moneySvg} alt="money" className={styles.scoreImg} />
             <h1 className={styles.scoreTitle}>{coinCount}</h1>

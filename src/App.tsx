@@ -102,7 +102,7 @@ function App() {
      
       
                </Button>      
-         <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('leaderboard')} shape="circle" icon={<BarsOutlined  className={styles.icon} />}>
+         <Button ghost className={styles.menuBtn} onClick={() => setCurrentView('leaderboard')} icon={<BarsOutlined  className={styles.icon} />}>
          <p>ЗАДАНИЯ</p>
          </Button>
      

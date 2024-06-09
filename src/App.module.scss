@@ -80,6 +80,13 @@ button {
   font-size: 16px;
   cursor: pointer;
   border: none !important; 
+  outline: none !important; 
+}
+button:where {
+  background: transparent !important;
+    border-color: none !important;
+    color: rgba(0, 0, 0, 0.88) !important;
+    box-shadow: none !important;
 }
 
 p {

@@ -5,6 +5,7 @@ interface CryptocashDB extends DBSchema {
     key: string;
     value: {
       userid: string;
+      tgId: string;
       coins: number;
       isClick: boolean;
       isClick2: boolean;
@@ -22,7 +23,7 @@ const dbPromise = openDB<CryptocashDB>('cryptocash-db', 1, {
 });
 
 
-export const addUser = async (user: { userid: string; coins: number, isClick: boolean,    isClick2: boolean; }) => {
+export const addUser = async (user: { userid: string, tgId:string; coins: number, isClick: boolean,    isClick2: boolean; }) => {
   const db = await dbPromise;
   await db.put('users', user);
 };
@@ -58,6 +59,11 @@ export const updateUserClick2 = async (userid: string, isClick2: boolean) => {
 export const getUser = async (userid: string) => {
   const db = await dbPromise;
   return db.get('users', userid);
+};
+
+export const getUserTgId = async (tgId: string) => {
+  const db = await dbPromise;
+  return db.get('users', tgId);
 };
 
 export const getAllUsers = async () => {

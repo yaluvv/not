@@ -19,8 +19,8 @@ const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsC
     
       setIsClick(true)
      
-        await updateUserCoins(userId, newCoinCount);
-        await updateUserClick(userId, true)
+        await updateUserCoins(userId,  newCoinCount);
+        await updateUserClick(userId,  true)
       
      }
  
@@ -41,7 +41,7 @@ const Leaderboard = ({userId, coinCount, setCoinCount, isClick, isClick2, setIsC
       setIsClick2(true)
      
         await updateUserCoins(userId, newCoinCount);
-        await updateUserClick2(userId, true)
+        await updateUserClick2(userId,  true)
       
      }
  

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './App.module.scss';
-import { addUser, updateUserCoins, getUser } from './Database/db';
+import { addUser, updateUserCoins, getUser, getUserTgId } from './Database/db';
 import Leaderboard from './Components/Leaderboard/Leaderboard';
 import { DollarOutlined, BarsOutlined   } from '@ant-design/icons';
 import { Button, ConfigProvider } from 'antd';
@@ -12,6 +12,7 @@ import WebApp from '@twa-dev/sdk'
 function App() {
   const [coinCount, setCoinCount] = useState<number>(0);
   const [userId, setUserId] = useState<string>('');
+  const [userTgId, setUserTgId] = useState<string>('');
   const [currentView, setCurrentView] = useState<string>('coin');
   const [isClick, setIsClick] = useState<boolean>(false);
   const [isClick2, setIsClick2] = useState<boolean>(false);
@@ -24,20 +25,27 @@ function App() {
   useEffect(() => {
     const initializeApp = async () => {
       const storedUserId = localStorage.getItem('userId');
-      if (storedUserId) {
+      const storedUserTgId = localStorage.getItem('tgId');
+      if (storedUserId && storedUserTgId) {
         setUserId(storedUserId);
+        setUserTgId(storedUserTgId)
         const user = await getUser(storedUserId);
-        const userId = `${WebApp.initDataUnsafe.user?.id}`
-        if (user && userId) {
+        //const tgIdi = await getUserTgId(storedUserTgId);
+        if (user) {
           setCoinCount(user.coins);
           setIsClick(user.isClick)
           setIsClick2(user.isClick2)
+          
 
         }
       } else {
-        localStorage.setItem('userId', userId);
-        setUserId(userId);
-        await addUser({ userid: userId, coins: 0, isClick: false, isClick2: false });
+        const newUserId = 'You';
+        const tgId = WebApp.initDataUnsafe.user?.id ? `${WebApp.initDataUnsafe.user?.id}`: '2'
+        localStorage.setItem('userId', newUserId);
+        localStorage.setItem('tgId', tgId);
+        setUserId(newUserId);
+        setUserTgId(tgId)
+        await addUser({ userid: newUserId, tgId, coins: 0, isClick: false, isClick2: false });
       }
     };
 
@@ -80,7 +88,7 @@ function App() {
             <h1 className={styles.scoreTitle}>{coinCount}</h1>
             </div>
             <p className={styles.x5}><img src={moneySvg} alt='x5'></img>X5 БОНУС</p>
-            <p>{userId}</p>
+            <p>{userId}{userTgId}</p>
           </div>
           <div className={styles.clickButton} onClick={handleButtonClick} >
           <img src={buttonSvg} alt="Click to earn coins" />
